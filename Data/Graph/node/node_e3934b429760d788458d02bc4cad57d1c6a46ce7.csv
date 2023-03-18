@@ -1,0 +1,424 @@
+,id,_label,name,code,lineNumber,controlStructureType,ALPHA,node_label,node_content
+0,0_5,METHOD,<global>,<global>,0_____1.0,,REMAIN,METHOD_1.0: <global>,
+1,0_7,METHOD,qobject_input_type_int64_keyval,"void qobject_input_type_int64_keyval (Visitor *v,const char *name,int64_t *obj,Error **errp)",0_____1.0,,REMAIN,"METHOD_1.0: void qobject_input_type_int64_keyval (Visitor *v,const char *name,int64_t *obj,Error **errp)",methodDecl qobject_input_type_int64_keyval 
+2,0_8,METHOD_PARAMETER_IN,v,Visitor *v,0_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: Visitor *v,variable v 
+3,0_9,METHOD_PARAMETER_IN,name,const char *name,0_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: const char *name,variable name 
+4,0_10,METHOD_PARAMETER_IN,obj,int64_t *obj,0_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: int64_t *obj,variable obj 
+5,0_11,METHOD_PARAMETER_IN,errp,Error **errp,0_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: Error **errp,variable errp 
+7,0_13,LOCAL,qiv,QObjectInputVisitor* qiv,0_____4.0,,REMAIN,LOCAL_4.0: QObjectInputVisitor* qiv,variable qiv 
+8,0_14,CALL,<operator>.assignment,*qiv = to_qiv(v),0_____4.0,,REMAIN,CALL_4.0: *qiv = to_qiv(v),assignment 
+9,0_15,IDENTIFIER,qiv,qiv,0_____4.0,,REMAIN,IDENTIFIER_4.0: qiv,variable qiv 
+10,0_16,CALL,to_qiv,to_qiv(v),0_____4.0,,REMAIN,CALL_4.0: to_qiv(v),funcCall to_qiv 
+11,0_17,IDENTIFIER,v,v,0_____4.0,,REMAIN,IDENTIFIER_4.0: v,variable v 
+12,0_47,RETURN,,return;,0_____15.0,,REMAIN,RETURN_15.0: return;,return return  
+13,0_58,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""integer"")",0_____20.0,,REMAIN,"CALL_20.0: error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""integer"")",funcCall error_setg 
+14,0_59,IDENTIFIER,errp,errp,0_____20.0,,REMAIN,IDENTIFIER_20.0: errp,variable errp 
+15,0_60,IDENTIFIER,QERR_INVALID_PARAMETER_VALUE,QERR_INVALID_PARAMETER_VALUE,0_____20.0,,REMAIN,IDENTIFIER_20.0: QERR_INVALID_PARAMETER_VALUE,variable QERR_INVALID_PARAMETER_VALUE 
+16,0_61,CALL,full_name,"full_name(qiv, name)",0_____21.0,,REMAIN,"CALL_21.0: full_name(qiv, name)",funcCall full_name 
+17,0_62,IDENTIFIER,qiv,qiv,0_____21.0,,REMAIN,IDENTIFIER_21.0: qiv,variable qiv 
+18,0_63,IDENTIFIER,name,name,0_____21.0,,REMAIN,IDENTIFIER_21.0: name,variable name 
+19,0_64,LITERAL,,"""integer""",0_____21.0,,REMAIN,"LITERAL_21.0: ""integer""",literal  
+20,0_65,METHOD_RETURN,,void,0_____1.0,,REMAIN,METHOD_RETURN_1.0: void,return void 
+21,0_150,METHOD_PARAMETER_OUT,v,Visitor *v,0_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: Visitor *v,variable v 
+22,0_151,METHOD_PARAMETER_OUT,name,const char *name,0_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: const char *name,variable name 
+23,0_152,METHOD_PARAMETER_OUT,obj,int64_t *obj,0_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: int64_t *obj,variable obj 
+24,0_153,METHOD_PARAMETER_OUT,errp,Error **errp,0_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: Error **errp,variable errp 
+27,0_4,TYPE_DECL,<global>,<global>,0_____1.0,,REMAIN,TYPE_DECL_1.0: <global>,type <global> 
+29,0_19,CALL,<operator>.assignment,"*qobj = qobject_input_get_object(qiv, name, true, errp)",0_____5.0,,REMAIN,"CALL_5.0: *qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+30,0_22,IDENTIFIER,qiv,qiv,0_____5.0,,REMAIN,IDENTIFIER_5.0: qiv,variable qiv 
+31,0_23,IDENTIFIER,name,name,0_____5.0,,REMAIN,IDENTIFIER_5.0: name,variable name 
+32,0_25,IDENTIFIER,errp,errp,0_____5.0,,REMAIN,IDENTIFIER_5.0: errp,variable errp 
+33,0_27,CONTROL_STRUCTURE,,if (!qobj),0_____8.0,IF,REMAIN,CONTROL_STRUCTURE_8.0: if (!qobj),ifStmt 
+34,0_28,CALL,<operator>.logicalNot,!qobj,0_____8.0,,REMAIN,CALL_8.0: !qobj,logicalNot 
+36,0_36,CONTROL_STRUCTURE,,if (!qstr),0_____12.0,IF,REMAIN,CONTROL_STRUCTURE_12.0: if (!qstr),ifStmt 
+38,0_50,CALL,qemu_strtoi64,"qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj)",0_____18.0,,REMAIN,"CALL_18.0: qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj)",funcCall qemu_strtoi64 
+39,0_53,IDENTIFIER,NULL,NULL,0_____18.0,,REMAIN,IDENTIFIER_18.0: NULL,variable NULL 
+40,0_54,LITERAL,,0,0_____18.0,,REMAIN,LITERAL_18.0: 0,literal  
+41,0_55,IDENTIFIER,obj,obj,0_____18.0,,REMAIN,IDENTIFIER_18.0: obj,variable obj 
+42,0_56,LITERAL,,0,0_____18.0,,REMAIN,LITERAL_18.0: 0,literal  
+125,0_18,LOCAL,qobj,QObject* qobj,0_____5.0,,DELETE,LOCAL_5.0: QObject* qobj,variable qobj 
+126,0_20,IDENTIFIER,qobj,qobj,0_____5.0,,DELETE,IDENTIFIER_5.0: qobj,variable qobj 
+127,0_21,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",0_____5.0,,DELETE,"CALL_5.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+128,0_24,LITERAL,,true,0_____5.0,,DELETE,LITERAL_5.0: true,literal  
+129,0_26,LOCAL,qstr,QString* qstr,0_____6.0,,DELETE,LOCAL_6.0: QString* qstr,variable qstr 
+130,0_29,IDENTIFIER,qobj,qobj,0_____8.0,,DELETE,IDENTIFIER_8.0: qobj,variable qobj 
+131,0_31,RETURN,,return;,0_____9.0,,DELETE,RETURN_9.0: return;,return return  
+132,0_32,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),0_____11.0,,DELETE,CALL_11.0: qstr = qobject_to_qstring(qobj),assignment 
+133,0_33,IDENTIFIER,qstr,qstr,0_____11.0,,DELETE,IDENTIFIER_11.0: qstr,variable qstr 
+134,0_34,CALL,qobject_to_qstring,qobject_to_qstring(qobj),0_____11.0,,DELETE,CALL_11.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+135,0_35,IDENTIFIER,qobj,qobj,0_____11.0,,DELETE,IDENTIFIER_11.0: qobj,variable qobj 
+136,0_37,CALL,<operator>.logicalNot,!qstr,0_____12.0,,DELETE,CALL_12.0: !qstr,logicalNot 
+137,0_38,IDENTIFIER,qstr,qstr,0_____12.0,,DELETE,IDENTIFIER_12.0: qstr,variable qstr 
+138,0_40,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",0_____13.0,,DELETE,"CALL_13.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+139,0_41,IDENTIFIER,errp,errp,0_____13.0,,DELETE,IDENTIFIER_13.0: errp,variable errp 
+140,0_42,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,0_____13.0,,DELETE,IDENTIFIER_13.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+141,0_43,CALL,full_name,"full_name(qiv, name)",0_____14.0,,DELETE,"CALL_14.0: full_name(qiv, name)",funcCall full_name 
+142,0_44,IDENTIFIER,qiv,qiv,0_____14.0,,DELETE,IDENTIFIER_14.0: qiv,variable qiv 
+143,0_45,IDENTIFIER,name,name,0_____14.0,,DELETE,IDENTIFIER_14.0: name,variable name 
+144,0_46,LITERAL,,"""string""",0_____14.0,,DELETE,"LITERAL_14.0: ""string""",literal  
+145,0_48,CONTROL_STRUCTURE,,"if (qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj) < 0)",0_____18.0,IF,DELETE,"CONTROL_STRUCTURE_18.0: if (qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj) < 0)",ifStmt 
+146,0_49,CALL,<operator>.lessThan,"qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj) < 0",0_____18.0,,DELETE,"CALL_18.0: qemu_strtoi64(qstring_get_str(qstr), NULL, 0, obj) < 0",lessThan 
+147,0_51,CALL,qstring_get_str,qstring_get_str(qstr),0_____18.0,,DELETE,CALL_18.0: qstring_get_str(qstr),funcCall qstring_get_str 
+148,0_52,IDENTIFIER,qstr,qstr,0_____18.0,,DELETE,IDENTIFIER_18.0: qstr,variable qstr 
+171,0_189,LOCAL,str,const char* str,0_____5.0,,ADD,LOCAL_5.0: const char* str,variable str 
+172,0_191,IDENTIFIER,str,str,0_____5.0,,ADD,IDENTIFIER_5.0: str,variable str 
+173,0_192,CALL,qobject_input_get_keyval,"qobject_input_get_keyval(qiv, name, errp)",0_____5.0,,ADD,"CALL_5.0: qobject_input_get_keyval(qiv, name, errp)",funcCall qobject_input_get_keyval 
+174,0_198,IDENTIFIER,str,str,0_____7.0,,ADD,IDENTIFIER_7.0: str,variable str 
+175,0_202,CALL,<operator>.lessThan,"qemu_strtoi64(str, NULL, 0, obj) < 0",0_____11.0,,ADD,"CALL_11.0: qemu_strtoi64(str, NULL, 0, obj) < 0",lessThan 
+176,0_204,IDENTIFIER,str,str,0_____11.0,,ADD,IDENTIFIER_11.0: str,variable str 
+0,1_5,METHOD,<global>,<global>,1_____1.0,,REMAIN,METHOD_1.0: <global>,
+1,1_7,METHOD,qobject_input_type_size_keyval,"void qobject_input_type_size_keyval (Visitor *v,const char *name,uint64_t *obj,Error **errp)",1_____1.0,,REMAIN,"METHOD_1.0: void qobject_input_type_size_keyval (Visitor *v,const char *name,uint64_t *obj,Error **errp)",methodDecl qobject_input_type_size_keyval 
+2,1_8,METHOD_PARAMETER_IN,v,Visitor *v,1_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: Visitor *v,variable v 
+3,1_9,METHOD_PARAMETER_IN,name,const char *name,1_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: const char *name,variable name 
+4,1_10,METHOD_PARAMETER_IN,obj,uint64_t *obj,1_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: uint64_t *obj,variable obj 
+5,1_11,METHOD_PARAMETER_IN,errp,Error **errp,1_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: Error **errp,variable errp 
+7,1_13,LOCAL,qiv,QObjectInputVisitor* qiv,1_____4.0,,REMAIN,LOCAL_4.0: QObjectInputVisitor* qiv,variable qiv 
+8,1_14,CALL,<operator>.assignment,*qiv = to_qiv(v),1_____4.0,,REMAIN,CALL_4.0: *qiv = to_qiv(v),assignment 
+9,1_15,IDENTIFIER,qiv,qiv,1_____4.0,,REMAIN,IDENTIFIER_4.0: qiv,variable qiv 
+10,1_16,CALL,to_qiv,to_qiv(v),1_____4.0,,REMAIN,CALL_4.0: to_qiv(v),funcCall to_qiv 
+11,1_17,IDENTIFIER,v,v,1_____4.0,,REMAIN,IDENTIFIER_4.0: v,variable v 
+12,1_47,RETURN,,return;,1_____15.0,,REMAIN,RETURN_15.0: return;,return return  
+13,1_57,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""size"")",1_____20.0,,REMAIN,"CALL_20.0: error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""size"")",funcCall error_setg 
+14,1_58,IDENTIFIER,errp,errp,1_____20.0,,REMAIN,IDENTIFIER_20.0: errp,variable errp 
+15,1_59,IDENTIFIER,QERR_INVALID_PARAMETER_VALUE,QERR_INVALID_PARAMETER_VALUE,1_____20.0,,REMAIN,IDENTIFIER_20.0: QERR_INVALID_PARAMETER_VALUE,variable QERR_INVALID_PARAMETER_VALUE 
+16,1_60,CALL,full_name,"full_name(qiv, name)",1_____21.0,,REMAIN,"CALL_21.0: full_name(qiv, name)",funcCall full_name 
+17,1_61,IDENTIFIER,qiv,qiv,1_____21.0,,REMAIN,IDENTIFIER_21.0: qiv,variable qiv 
+18,1_62,IDENTIFIER,name,name,1_____21.0,,REMAIN,IDENTIFIER_21.0: name,variable name 
+19,1_63,LITERAL,,"""size""",1_____21.0,,REMAIN,"LITERAL_21.0: ""size""",literal  
+20,1_64,METHOD_RETURN,,void,1_____1.0,,REMAIN,METHOD_RETURN_1.0: void,return void 
+21,1_148,METHOD_PARAMETER_OUT,v,Visitor *v,1_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: Visitor *v,variable v 
+22,1_149,METHOD_PARAMETER_OUT,name,const char *name,1_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: const char *name,variable name 
+23,1_150,METHOD_PARAMETER_OUT,obj,uint64_t *obj,1_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: uint64_t *obj,variable obj 
+24,1_151,METHOD_PARAMETER_OUT,errp,Error **errp,1_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: Error **errp,variable errp 
+27,1_4,TYPE_DECL,<global>,<global>,1_____1.0,,REMAIN,TYPE_DECL_1.0: <global>,type <global> 
+29,1_19,CALL,<operator>.assignment,"*qobj = qobject_input_get_object(qiv, name, true, errp)",1_____5.0,,REMAIN,"CALL_5.0: *qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+30,1_22,IDENTIFIER,qiv,qiv,1_____5.0,,REMAIN,IDENTIFIER_5.0: qiv,variable qiv 
+31,1_23,IDENTIFIER,name,name,1_____5.0,,REMAIN,IDENTIFIER_5.0: name,variable name 
+32,1_25,IDENTIFIER,errp,errp,1_____5.0,,REMAIN,IDENTIFIER_5.0: errp,variable errp 
+33,1_27,CONTROL_STRUCTURE,,if (!qobj),1_____8.0,IF,REMAIN,CONTROL_STRUCTURE_8.0: if (!qobj),ifStmt 
+34,1_28,CALL,<operator>.logicalNot,!qobj,1_____8.0,,REMAIN,CALL_8.0: !qobj,logicalNot 
+36,1_36,CONTROL_STRUCTURE,,if (!qstr),1_____12.0,IF,REMAIN,CONTROL_STRUCTURE_12.0: if (!qstr),ifStmt 
+38,1_50,CALL,qemu_strtosz,"qemu_strtosz(qstring_get_str(qstr), NULL, obj)",1_____18.0,,REMAIN,"CALL_18.0: qemu_strtosz(qstring_get_str(qstr), NULL, obj)",funcCall qemu_strtosz 
+39,1_53,IDENTIFIER,NULL,NULL,1_____18.0,,REMAIN,IDENTIFIER_18.0: NULL,variable NULL 
+40,1_54,IDENTIFIER,obj,obj,1_____18.0,,REMAIN,IDENTIFIER_18.0: obj,variable obj 
+41,1_55,LITERAL,,0,1_____18.0,,REMAIN,LITERAL_18.0: 0,literal  
+122,1_18,LOCAL,qobj,QObject* qobj,1_____5.0,,DELETE,LOCAL_5.0: QObject* qobj,variable qobj 
+123,1_20,IDENTIFIER,qobj,qobj,1_____5.0,,DELETE,IDENTIFIER_5.0: qobj,variable qobj 
+124,1_21,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",1_____5.0,,DELETE,"CALL_5.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+125,1_24,LITERAL,,true,1_____5.0,,DELETE,LITERAL_5.0: true,literal  
+126,1_26,LOCAL,qstr,QString* qstr,1_____6.0,,DELETE,LOCAL_6.0: QString* qstr,variable qstr 
+127,1_29,IDENTIFIER,qobj,qobj,1_____8.0,,DELETE,IDENTIFIER_8.0: qobj,variable qobj 
+128,1_31,RETURN,,return;,1_____9.0,,DELETE,RETURN_9.0: return;,return return  
+129,1_32,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),1_____11.0,,DELETE,CALL_11.0: qstr = qobject_to_qstring(qobj),assignment 
+130,1_33,IDENTIFIER,qstr,qstr,1_____11.0,,DELETE,IDENTIFIER_11.0: qstr,variable qstr 
+131,1_34,CALL,qobject_to_qstring,qobject_to_qstring(qobj),1_____11.0,,DELETE,CALL_11.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+132,1_35,IDENTIFIER,qobj,qobj,1_____11.0,,DELETE,IDENTIFIER_11.0: qobj,variable qobj 
+133,1_37,CALL,<operator>.logicalNot,!qstr,1_____12.0,,DELETE,CALL_12.0: !qstr,logicalNot 
+134,1_38,IDENTIFIER,qstr,qstr,1_____12.0,,DELETE,IDENTIFIER_12.0: qstr,variable qstr 
+135,1_40,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",1_____13.0,,DELETE,"CALL_13.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+136,1_41,IDENTIFIER,errp,errp,1_____13.0,,DELETE,IDENTIFIER_13.0: errp,variable errp 
+137,1_42,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,1_____13.0,,DELETE,IDENTIFIER_13.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+138,1_43,CALL,full_name,"full_name(qiv, name)",1_____14.0,,DELETE,"CALL_14.0: full_name(qiv, name)",funcCall full_name 
+139,1_44,IDENTIFIER,qiv,qiv,1_____14.0,,DELETE,IDENTIFIER_14.0: qiv,variable qiv 
+140,1_45,IDENTIFIER,name,name,1_____14.0,,DELETE,IDENTIFIER_14.0: name,variable name 
+141,1_46,LITERAL,,"""string""",1_____14.0,,DELETE,"LITERAL_14.0: ""string""",literal  
+142,1_48,CONTROL_STRUCTURE,,"if (qemu_strtosz(qstring_get_str(qstr), NULL, obj) < 0)",1_____18.0,IF,DELETE,"CONTROL_STRUCTURE_18.0: if (qemu_strtosz(qstring_get_str(qstr), NULL, obj) < 0)",ifStmt 
+143,1_49,CALL,<operator>.lessThan,"qemu_strtosz(qstring_get_str(qstr), NULL, obj) < 0",1_____18.0,,DELETE,"CALL_18.0: qemu_strtosz(qstring_get_str(qstr), NULL, obj) < 0",lessThan 
+144,1_51,CALL,qstring_get_str,qstring_get_str(qstr),1_____18.0,,DELETE,CALL_18.0: qstring_get_str(qstr),funcCall qstring_get_str 
+145,1_52,IDENTIFIER,qstr,qstr,1_____18.0,,DELETE,IDENTIFIER_18.0: qstr,variable qstr 
+168,1_186,LOCAL,str,const char* str,1_____5.0,,ADD,LOCAL_5.0: const char* str,variable str 
+169,1_188,IDENTIFIER,str,str,1_____5.0,,ADD,IDENTIFIER_5.0: str,variable str 
+170,1_189,CALL,qobject_input_get_keyval,"qobject_input_get_keyval(qiv, name, errp)",1_____5.0,,ADD,"CALL_5.0: qobject_input_get_keyval(qiv, name, errp)",funcCall qobject_input_get_keyval 
+171,1_195,IDENTIFIER,str,str,1_____7.0,,ADD,IDENTIFIER_7.0: str,variable str 
+172,1_199,CALL,<operator>.lessThan,"qemu_strtosz(str, NULL, obj) < 0",1_____11.0,,ADD,"CALL_11.0: qemu_strtosz(str, NULL, obj) < 0",lessThan 
+173,1_201,IDENTIFIER,str,str,1_____11.0,,ADD,IDENTIFIER_11.0: str,variable str 
+0,2_5,METHOD,<global>,<global>,2_____1.0,,REMAIN,METHOD_1.0: <global>,
+1,2_7,METHOD,qobject_input_type_number_keyval,"void qobject_input_type_number_keyval (Visitor *v,const char *name,double *obj,Error **errp)",2_____1.0,,REMAIN,"METHOD_1.0: void qobject_input_type_number_keyval (Visitor *v,const char *name,double *obj,Error **errp)",methodDecl qobject_input_type_number_keyval 
+2,2_8,METHOD_PARAMETER_IN,v,Visitor *v,2_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: Visitor *v,variable v 
+3,2_9,METHOD_PARAMETER_IN,name,const char *name,2_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: const char *name,variable name 
+4,2_10,METHOD_PARAMETER_IN,obj,double *obj,2_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: double *obj,variable obj 
+5,2_11,METHOD_PARAMETER_IN,errp,Error **errp,2_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: Error **errp,variable errp 
+7,2_13,LOCAL,qiv,QObjectInputVisitor* qiv,2_____4.0,,REMAIN,LOCAL_4.0: QObjectInputVisitor* qiv,variable qiv 
+8,2_14,CALL,<operator>.assignment,*qiv = to_qiv(v),2_____4.0,,REMAIN,CALL_4.0: *qiv = to_qiv(v),assignment 
+9,2_15,IDENTIFIER,qiv,qiv,2_____4.0,,REMAIN,IDENTIFIER_4.0: qiv,variable qiv 
+10,2_16,CALL,to_qiv,to_qiv(v),2_____4.0,,REMAIN,CALL_4.0: to_qiv(v),funcCall to_qiv 
+11,2_17,IDENTIFIER,v,v,2_____4.0,,REMAIN,IDENTIFIER_4.0: v,variable v 
+12,2_28,LOCAL,endp,char* endp,2_____8.0,,REMAIN,LOCAL_8.0: char* endp,variable endp 
+13,2_49,RETURN,,return;,2_____17.0,,REMAIN,RETURN_17.0: return;,return return  
+14,2_54,CALL,<operator>.assignment,errno = 0,2_____21.0,,REMAIN,CALL_21.0: errno = 0,assignment 
+15,2_55,IDENTIFIER,errno,errno,2_____21.0,,REMAIN,IDENTIFIER_21.0: errno,variable errno 
+16,2_56,LITERAL,,0,2_____21.0,,REMAIN,LITERAL_21.0: 0,literal  
+17,2_57,CALL,<operator>.assignment,"*obj = strtod(str, &endp)",2_____22.0,,REMAIN,"CALL_22.0: *obj = strtod(str, &endp)",assignment 
+18,2_58,CALL,<operator>.indirection,*obj,2_____22.0,,REMAIN,CALL_22.0: *obj,indirection 
+19,2_59,IDENTIFIER,obj,obj,2_____22.0,,REMAIN,IDENTIFIER_22.0: obj,variable obj 
+20,2_60,CALL,strtod,"strtod(str, &endp)",2_____22.0,,REMAIN,"CALL_22.0: strtod(str, &endp)",funcCall strtod 
+21,2_61,IDENTIFIER,str,str,2_____22.0,,REMAIN,IDENTIFIER_22.0: str,variable str 
+22,2_62,CALL,<operator>.addressOf,&endp,2_____22.0,,REMAIN,CALL_22.0: &endp,addressOf 
+23,2_63,IDENTIFIER,endp,endp,2_____22.0,,REMAIN,IDENTIFIER_22.0: endp,variable endp 
+24,2_64,CONTROL_STRUCTURE,,if (errno || endp == str || *endp),2_____23.0,IF,REMAIN,CONTROL_STRUCTURE_23.0: if (errno || endp == str || *endp),ifStmt 
+25,2_65,CALL,<operator>.logicalOr,errno || endp == str || *endp,2_____23.0,,REMAIN,CALL_23.0: errno || endp == str || *endp,logicalOr 
+26,2_66,CALL,<operator>.logicalOr,errno || endp == str,2_____23.0,,REMAIN,CALL_23.0: errno || endp == str,logicalOr 
+27,2_67,IDENTIFIER,errno,errno,2_____23.0,,REMAIN,IDENTIFIER_23.0: errno,variable errno 
+28,2_68,CALL,<operator>.equals,endp == str,2_____23.0,,REMAIN,CALL_23.0: endp == str,equals 
+29,2_69,IDENTIFIER,endp,endp,2_____23.0,,REMAIN,IDENTIFIER_23.0: endp,variable endp 
+30,2_70,IDENTIFIER,str,str,2_____23.0,,REMAIN,IDENTIFIER_23.0: str,variable str 
+31,2_71,CALL,<operator>.indirection,*endp,2_____23.0,,REMAIN,CALL_23.0: *endp,indirection 
+32,2_72,IDENTIFIER,endp,endp,2_____23.0,,REMAIN,IDENTIFIER_23.0: endp,variable endp 
+34,2_74,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""number"")",2_____25.0,,REMAIN,"CALL_25.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""number"")",funcCall error_setg 
+35,2_75,IDENTIFIER,errp,errp,2_____25.0,,REMAIN,IDENTIFIER_25.0: errp,variable errp 
+36,2_76,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,2_____25.0,,REMAIN,IDENTIFIER_25.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+37,2_77,CALL,full_name,"full_name(qiv, name)",2_____26.0,,REMAIN,"CALL_26.0: full_name(qiv, name)",funcCall full_name 
+38,2_78,IDENTIFIER,qiv,qiv,2_____26.0,,REMAIN,IDENTIFIER_26.0: qiv,variable qiv 
+39,2_79,IDENTIFIER,name,name,2_____26.0,,REMAIN,IDENTIFIER_26.0: name,variable name 
+40,2_80,LITERAL,,"""number""",2_____26.0,,REMAIN,"LITERAL_26.0: ""number""",literal  
+41,2_81,METHOD_RETURN,,void,2_____1.0,,REMAIN,METHOD_RETURN_1.0: void,return void 
+42,2_175,METHOD_PARAMETER_OUT,v,Visitor *v,2_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: Visitor *v,variable v 
+43,2_176,METHOD_PARAMETER_OUT,name,const char *name,2_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: const char *name,variable name 
+44,2_177,METHOD_PARAMETER_OUT,obj,double *obj,2_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: double *obj,variable obj 
+45,2_178,METHOD_PARAMETER_OUT,errp,Error **errp,2_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: Error **errp,variable errp 
+48,2_4,TYPE_DECL,<global>,<global>,2_____1.0,,REMAIN,TYPE_DECL_1.0: <global>,type <global> 
+50,2_19,CALL,<operator>.assignment,"*qobj = qobject_input_get_object(qiv, name, true, errp)",2_____5.0,,REMAIN,"CALL_5.0: *qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+51,2_22,IDENTIFIER,qiv,qiv,2_____5.0,,REMAIN,IDENTIFIER_5.0: qiv,variable qiv 
+52,2_23,IDENTIFIER,name,name,2_____5.0,,REMAIN,IDENTIFIER_5.0: name,variable name 
+53,2_25,IDENTIFIER,errp,errp,2_____5.0,,REMAIN,IDENTIFIER_5.0: errp,variable errp 
+55,2_29,CONTROL_STRUCTURE,,if (!qobj),2_____10.0,IF,REMAIN,CONTROL_STRUCTURE_10.0: if (!qobj),ifStmt 
+56,2_30,CALL,<operator>.logicalNot,!qobj,2_____10.0,,REMAIN,CALL_10.0: !qobj,logicalNot 
+153,2_18,LOCAL,qobj,QObject* qobj,2_____5.0,,DELETE,LOCAL_5.0: QObject* qobj,variable qobj 
+154,2_20,IDENTIFIER,qobj,qobj,2_____5.0,,DELETE,IDENTIFIER_5.0: qobj,variable qobj 
+155,2_21,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",2_____5.0,,DELETE,"CALL_5.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+156,2_24,LITERAL,,true,2_____5.0,,DELETE,LITERAL_5.0: true,literal  
+157,2_26,LOCAL,qstr,QString* qstr,2_____6.0,,DELETE,LOCAL_6.0: QString* qstr,variable qstr 
+158,2_31,IDENTIFIER,qobj,qobj,2_____10.0,,DELETE,IDENTIFIER_10.0: qobj,variable qobj 
+159,2_33,RETURN,,return;,2_____11.0,,DELETE,RETURN_11.0: return;,return return  
+160,2_34,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),2_____13.0,,DELETE,CALL_13.0: qstr = qobject_to_qstring(qobj),assignment 
+161,2_35,IDENTIFIER,qstr,qstr,2_____13.0,,DELETE,IDENTIFIER_13.0: qstr,variable qstr 
+162,2_36,CALL,qobject_to_qstring,qobject_to_qstring(qobj),2_____13.0,,DELETE,CALL_13.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+163,2_37,IDENTIFIER,qobj,qobj,2_____13.0,,DELETE,IDENTIFIER_13.0: qobj,variable qobj 
+164,2_38,CONTROL_STRUCTURE,,if (!qstr),2_____14.0,IF,DELETE,CONTROL_STRUCTURE_14.0: if (!qstr),ifStmt 
+165,2_39,CALL,<operator>.logicalNot,!qstr,2_____14.0,,DELETE,CALL_14.0: !qstr,logicalNot 
+166,2_40,IDENTIFIER,qstr,qstr,2_____14.0,,DELETE,IDENTIFIER_14.0: qstr,variable qstr 
+168,2_42,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",2_____15.0,,DELETE,"CALL_15.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+169,2_43,IDENTIFIER,errp,errp,2_____15.0,,DELETE,IDENTIFIER_15.0: errp,variable errp 
+170,2_44,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,2_____15.0,,DELETE,IDENTIFIER_15.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+171,2_45,CALL,full_name,"full_name(qiv, name)",2_____16.0,,DELETE,"CALL_16.0: full_name(qiv, name)",funcCall full_name 
+172,2_46,IDENTIFIER,qiv,qiv,2_____16.0,,DELETE,IDENTIFIER_16.0: qiv,variable qiv 
+173,2_47,IDENTIFIER,name,name,2_____16.0,,DELETE,IDENTIFIER_16.0: name,variable name 
+174,2_48,LITERAL,,"""string""",2_____16.0,,DELETE,"LITERAL_16.0: ""string""",literal  
+175,2_50,CALL,<operator>.assignment,str = qstring_get_str(qstr),2_____20.0,,DELETE,CALL_20.0: str = qstring_get_str(qstr),assignment 
+176,2_51,IDENTIFIER,str,str,2_____20.0,,DELETE,IDENTIFIER_20.0: str,variable str 
+177,2_52,CALL,qstring_get_str,qstring_get_str(qstr),2_____20.0,,DELETE,CALL_20.0: qstring_get_str(qstr),funcCall qstring_get_str 
+178,2_53,IDENTIFIER,qstr,qstr,2_____20.0,,DELETE,IDENTIFIER_20.0: qstr,variable qstr 
+198,2_218,IDENTIFIER,str,str,2_____5.0,,ADD,IDENTIFIER_5.0: str,variable str 
+199,2_219,CALL,qobject_input_get_keyval,"qobject_input_get_keyval(qiv, name, errp)",2_____5.0,,ADD,"CALL_5.0: qobject_input_get_keyval(qiv, name, errp)",funcCall qobject_input_get_keyval 
+200,2_226,IDENTIFIER,str,str,2_____8.0,,ADD,IDENTIFIER_8.0: str,variable str 
+0,3_5,METHOD,<global>,<global>,3_____1.0,,REMAIN,METHOD_1.0: <global>,
+1,3_7,METHOD,qobject_input_type_uint64_keyval,"void qobject_input_type_uint64_keyval (Visitor *v,const char *name,uint64_t *obj,Error **errp)",3_____1.0,,REMAIN,"METHOD_1.0: void qobject_input_type_uint64_keyval (Visitor *v,const char *name,uint64_t *obj,Error **errp)",methodDecl qobject_input_type_uint64_keyval 
+2,3_8,METHOD_PARAMETER_IN,v,Visitor *v,3_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: Visitor *v,variable v 
+3,3_9,METHOD_PARAMETER_IN,name,const char *name,3_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: const char *name,variable name 
+4,3_10,METHOD_PARAMETER_IN,obj,uint64_t *obj,3_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: uint64_t *obj,variable obj 
+5,3_11,METHOD_PARAMETER_IN,errp,Error **errp,3_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: Error **errp,variable errp 
+7,3_13,LOCAL,qiv,QObjectInputVisitor* qiv,3_____4.0,,REMAIN,LOCAL_4.0: QObjectInputVisitor* qiv,variable qiv 
+8,3_14,CALL,<operator>.assignment,*qiv = to_qiv(v),3_____4.0,,REMAIN,CALL_4.0: *qiv = to_qiv(v),assignment 
+9,3_15,IDENTIFIER,qiv,qiv,3_____4.0,,REMAIN,IDENTIFIER_4.0: qiv,variable qiv 
+10,3_16,CALL,to_qiv,to_qiv(v),3_____4.0,,REMAIN,CALL_4.0: to_qiv(v),funcCall to_qiv 
+11,3_17,IDENTIFIER,v,v,3_____4.0,,REMAIN,IDENTIFIER_4.0: v,variable v 
+12,3_47,RETURN,,return;,3_____15.0,,REMAIN,RETURN_15.0: return;,return return  
+13,3_58,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""integer"")",3_____20.0,,REMAIN,"CALL_20.0: error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""integer"")",funcCall error_setg 
+14,3_59,IDENTIFIER,errp,errp,3_____20.0,,REMAIN,IDENTIFIER_20.0: errp,variable errp 
+15,3_60,IDENTIFIER,QERR_INVALID_PARAMETER_VALUE,QERR_INVALID_PARAMETER_VALUE,3_____20.0,,REMAIN,IDENTIFIER_20.0: QERR_INVALID_PARAMETER_VALUE,variable QERR_INVALID_PARAMETER_VALUE 
+16,3_61,CALL,full_name,"full_name(qiv, name)",3_____21.0,,REMAIN,"CALL_21.0: full_name(qiv, name)",funcCall full_name 
+17,3_62,IDENTIFIER,qiv,qiv,3_____21.0,,REMAIN,IDENTIFIER_21.0: qiv,variable qiv 
+18,3_63,IDENTIFIER,name,name,3_____21.0,,REMAIN,IDENTIFIER_21.0: name,variable name 
+19,3_64,LITERAL,,"""integer""",3_____21.0,,REMAIN,"LITERAL_21.0: ""integer""",literal  
+20,3_65,METHOD_RETURN,,void,3_____1.0,,REMAIN,METHOD_RETURN_1.0: void,return void 
+21,3_150,METHOD_PARAMETER_OUT,v,Visitor *v,3_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: Visitor *v,variable v 
+22,3_151,METHOD_PARAMETER_OUT,name,const char *name,3_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: const char *name,variable name 
+23,3_152,METHOD_PARAMETER_OUT,obj,uint64_t *obj,3_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: uint64_t *obj,variable obj 
+24,3_153,METHOD_PARAMETER_OUT,errp,Error **errp,3_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: Error **errp,variable errp 
+27,3_4,TYPE_DECL,<global>,<global>,3_____1.0,,REMAIN,TYPE_DECL_1.0: <global>,type <global> 
+29,3_19,CALL,<operator>.assignment,"*qobj = qobject_input_get_object(qiv, name, true, errp)",3_____5.0,,REMAIN,"CALL_5.0: *qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+30,3_22,IDENTIFIER,qiv,qiv,3_____5.0,,REMAIN,IDENTIFIER_5.0: qiv,variable qiv 
+31,3_23,IDENTIFIER,name,name,3_____5.0,,REMAIN,IDENTIFIER_5.0: name,variable name 
+32,3_25,IDENTIFIER,errp,errp,3_____5.0,,REMAIN,IDENTIFIER_5.0: errp,variable errp 
+33,3_27,CONTROL_STRUCTURE,,if (!qobj),3_____8.0,IF,REMAIN,CONTROL_STRUCTURE_8.0: if (!qobj),ifStmt 
+34,3_28,CALL,<operator>.logicalNot,!qobj,3_____8.0,,REMAIN,CALL_8.0: !qobj,logicalNot 
+36,3_36,CONTROL_STRUCTURE,,if (!qstr),3_____12.0,IF,REMAIN,CONTROL_STRUCTURE_12.0: if (!qstr),ifStmt 
+38,3_50,CALL,qemu_strtou64,"qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj)",3_____18.0,,REMAIN,"CALL_18.0: qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj)",funcCall qemu_strtou64 
+39,3_53,IDENTIFIER,NULL,NULL,3_____18.0,,REMAIN,IDENTIFIER_18.0: NULL,variable NULL 
+40,3_54,LITERAL,,0,3_____18.0,,REMAIN,LITERAL_18.0: 0,literal  
+41,3_55,IDENTIFIER,obj,obj,3_____18.0,,REMAIN,IDENTIFIER_18.0: obj,variable obj 
+42,3_56,LITERAL,,0,3_____18.0,,REMAIN,LITERAL_18.0: 0,literal  
+125,3_18,LOCAL,qobj,QObject* qobj,3_____5.0,,DELETE,LOCAL_5.0: QObject* qobj,variable qobj 
+126,3_20,IDENTIFIER,qobj,qobj,3_____5.0,,DELETE,IDENTIFIER_5.0: qobj,variable qobj 
+127,3_21,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",3_____5.0,,DELETE,"CALL_5.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+128,3_24,LITERAL,,true,3_____5.0,,DELETE,LITERAL_5.0: true,literal  
+129,3_26,LOCAL,qstr,QString* qstr,3_____6.0,,DELETE,LOCAL_6.0: QString* qstr,variable qstr 
+130,3_29,IDENTIFIER,qobj,qobj,3_____8.0,,DELETE,IDENTIFIER_8.0: qobj,variable qobj 
+131,3_31,RETURN,,return;,3_____9.0,,DELETE,RETURN_9.0: return;,return return  
+132,3_32,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),3_____11.0,,DELETE,CALL_11.0: qstr = qobject_to_qstring(qobj),assignment 
+133,3_33,IDENTIFIER,qstr,qstr,3_____11.0,,DELETE,IDENTIFIER_11.0: qstr,variable qstr 
+134,3_34,CALL,qobject_to_qstring,qobject_to_qstring(qobj),3_____11.0,,DELETE,CALL_11.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+135,3_35,IDENTIFIER,qobj,qobj,3_____11.0,,DELETE,IDENTIFIER_11.0: qobj,variable qobj 
+136,3_37,CALL,<operator>.logicalNot,!qstr,3_____12.0,,DELETE,CALL_12.0: !qstr,logicalNot 
+137,3_38,IDENTIFIER,qstr,qstr,3_____12.0,,DELETE,IDENTIFIER_12.0: qstr,variable qstr 
+138,3_40,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",3_____13.0,,DELETE,"CALL_13.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+139,3_41,IDENTIFIER,errp,errp,3_____13.0,,DELETE,IDENTIFIER_13.0: errp,variable errp 
+140,3_42,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,3_____13.0,,DELETE,IDENTIFIER_13.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+141,3_43,CALL,full_name,"full_name(qiv, name)",3_____14.0,,DELETE,"CALL_14.0: full_name(qiv, name)",funcCall full_name 
+142,3_44,IDENTIFIER,qiv,qiv,3_____14.0,,DELETE,IDENTIFIER_14.0: qiv,variable qiv 
+143,3_45,IDENTIFIER,name,name,3_____14.0,,DELETE,IDENTIFIER_14.0: name,variable name 
+144,3_46,LITERAL,,"""string""",3_____14.0,,DELETE,"LITERAL_14.0: ""string""",literal  
+145,3_48,CONTROL_STRUCTURE,,"if (qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj) < 0)",3_____18.0,IF,DELETE,"CONTROL_STRUCTURE_18.0: if (qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj) < 0)",ifStmt 
+146,3_49,CALL,<operator>.lessThan,"qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj) < 0",3_____18.0,,DELETE,"CALL_18.0: qemu_strtou64(qstring_get_str(qstr), NULL, 0, obj) < 0",lessThan 
+147,3_51,CALL,qstring_get_str,qstring_get_str(qstr),3_____18.0,,DELETE,CALL_18.0: qstring_get_str(qstr),funcCall qstring_get_str 
+148,3_52,IDENTIFIER,qstr,qstr,3_____18.0,,DELETE,IDENTIFIER_18.0: qstr,variable qstr 
+171,3_189,LOCAL,str,const char* str,3_____5.0,,ADD,LOCAL_5.0: const char* str,variable str 
+172,3_191,IDENTIFIER,str,str,3_____5.0,,ADD,IDENTIFIER_5.0: str,variable str 
+173,3_192,CALL,qobject_input_get_keyval,"qobject_input_get_keyval(qiv, name, errp)",3_____5.0,,ADD,"CALL_5.0: qobject_input_get_keyval(qiv, name, errp)",funcCall qobject_input_get_keyval 
+174,3_198,IDENTIFIER,str,str,3_____7.0,,ADD,IDENTIFIER_7.0: str,variable str 
+175,3_202,CALL,<operator>.lessThan,"qemu_strtou64(str, NULL, 0, obj) < 0",3_____11.0,,ADD,"CALL_11.0: qemu_strtou64(str, NULL, 0, obj) < 0",lessThan 
+176,3_204,IDENTIFIER,str,str,3_____11.0,,ADD,IDENTIFIER_11.0: str,variable str 
+0,4_5,METHOD,<global>,<global>,4_____1.0,,REMAIN,METHOD_1.0: <global>,
+1,4_7,METHOD,qobject_input_type_bool_keyval,"void qobject_input_type_bool_keyval (Visitor *v,const char *name,bool *obj,Error **errp)",4_____1.0,,REMAIN,"METHOD_1.0: void qobject_input_type_bool_keyval (Visitor *v,const char *name,bool *obj,Error **errp)",methodDecl qobject_input_type_bool_keyval 
+2,4_8,METHOD_PARAMETER_IN,v,Visitor *v,4_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: Visitor *v,variable v 
+3,4_9,METHOD_PARAMETER_IN,name,const char *name,4_____1.0,,REMAIN,METHOD_PARAMETER_IN_1.0: const char *name,variable name 
+4,4_10,METHOD_PARAMETER_IN,obj,bool *obj,4_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: bool *obj,variable obj 
+5,4_11,METHOD_PARAMETER_IN,errp,Error **errp,4_____2.0,,REMAIN,METHOD_PARAMETER_IN_2.0: Error **errp,variable errp 
+7,4_13,LOCAL,qiv,QObjectInputVisitor* qiv,4_____4.0,,REMAIN,LOCAL_4.0: QObjectInputVisitor* qiv,variable qiv 
+8,4_14,CALL,<operator>.assignment,*qiv = to_qiv(v),4_____4.0,,REMAIN,CALL_4.0: *qiv = to_qiv(v),assignment 
+9,4_15,IDENTIFIER,qiv,qiv,4_____4.0,,REMAIN,IDENTIFIER_4.0: qiv,variable qiv 
+10,4_16,CALL,to_qiv,to_qiv(v),4_____4.0,,REMAIN,CALL_4.0: to_qiv(v),funcCall to_qiv 
+11,4_17,IDENTIFIER,v,v,4_____4.0,,REMAIN,IDENTIFIER_4.0: v,variable v 
+12,4_48,RETURN,,return;,4_____16.0,,REMAIN,RETURN_16.0: return;,return return  
+13,4_53,CONTROL_STRUCTURE,,"if (!strcmp(str, ""on""))",4_____20.0,IF,REMAIN,"CONTROL_STRUCTURE_20.0: if (!strcmp(str, ""on""))",ifStmt 
+14,4_54,CALL,<operator>.logicalNot,"!strcmp(str, ""on"")",4_____20.0,,REMAIN,"CALL_20.0: !strcmp(str, ""on"")",logicalNot 
+15,4_55,CALL,strcmp,"strcmp(str, ""on"")",4_____20.0,,REMAIN,"CALL_20.0: strcmp(str, ""on"")",funcCall strcmp 
+16,4_56,IDENTIFIER,str,str,4_____20.0,,REMAIN,IDENTIFIER_20.0: str,variable str 
+17,4_57,LITERAL,,"""on""",4_____20.0,,REMAIN,"LITERAL_20.0: ""on""",literal  
+19,4_59,CALL,<operator>.assignment,*obj = true,4_____21.0,,REMAIN,CALL_21.0: *obj = true,assignment 
+20,4_60,CALL,<operator>.indirection,*obj,4_____21.0,,REMAIN,CALL_21.0: *obj,indirection 
+21,4_61,IDENTIFIER,obj,obj,4_____21.0,,REMAIN,IDENTIFIER_21.0: obj,variable obj 
+22,4_62,LITERAL,,true,4_____21.0,,REMAIN,LITERAL_21.0: true,literal  
+23,4_63,CONTROL_STRUCTURE,,else,4_____22.0,ELSE,REMAIN,CONTROL_STRUCTURE_22.0: else,CtrlStruct 
+25,4_65,CONTROL_STRUCTURE,,"if (!strcmp(str, ""off""))",4_____22.0,IF,REMAIN,"CONTROL_STRUCTURE_22.0: if (!strcmp(str, ""off""))",ifStmt 
+26,4_66,CALL,<operator>.logicalNot,"!strcmp(str, ""off"")",4_____22.0,,REMAIN,"CALL_22.0: !strcmp(str, ""off"")",logicalNot 
+27,4_67,CALL,strcmp,"strcmp(str, ""off"")",4_____22.0,,REMAIN,"CALL_22.0: strcmp(str, ""off"")",funcCall strcmp 
+28,4_68,IDENTIFIER,str,str,4_____22.0,,REMAIN,IDENTIFIER_22.0: str,variable str 
+29,4_69,LITERAL,,"""off""",4_____22.0,,REMAIN,"LITERAL_22.0: ""off""",literal  
+31,4_71,CALL,<operator>.assignment,*obj = false,4_____23.0,,REMAIN,CALL_23.0: *obj = false,assignment 
+32,4_72,CALL,<operator>.indirection,*obj,4_____23.0,,REMAIN,CALL_23.0: *obj,indirection 
+33,4_73,IDENTIFIER,obj,obj,4_____23.0,,REMAIN,IDENTIFIER_23.0: obj,variable obj 
+34,4_74,LITERAL,,false,4_____23.0,,REMAIN,LITERAL_23.0: false,literal  
+37,4_77,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""'on' or 'off'"")",4_____25.0,,REMAIN,"CALL_25.0: error_setg(errp, QERR_INVALID_PARAMETER_VALUE,
+                   full_name(qiv, name), ""'on' or 'off'"")",funcCall error_setg 
+38,4_78,IDENTIFIER,errp,errp,4_____25.0,,REMAIN,IDENTIFIER_25.0: errp,variable errp 
+39,4_79,IDENTIFIER,QERR_INVALID_PARAMETER_VALUE,QERR_INVALID_PARAMETER_VALUE,4_____25.0,,REMAIN,IDENTIFIER_25.0: QERR_INVALID_PARAMETER_VALUE,variable QERR_INVALID_PARAMETER_VALUE 
+40,4_80,CALL,full_name,"full_name(qiv, name)",4_____26.0,,REMAIN,"CALL_26.0: full_name(qiv, name)",funcCall full_name 
+41,4_81,IDENTIFIER,qiv,qiv,4_____26.0,,REMAIN,IDENTIFIER_26.0: qiv,variable qiv 
+42,4_82,IDENTIFIER,name,name,4_____26.0,,REMAIN,IDENTIFIER_26.0: name,variable name 
+43,4_83,LITERAL,,"""'on' or 'off'""",4_____26.0,,REMAIN,"LITERAL_26.0: ""'on' or 'off'""",literal  
+44,4_84,METHOD_RETURN,,void,4_____1.0,,REMAIN,METHOD_RETURN_1.0: void,return void 
+45,4_166,METHOD_PARAMETER_OUT,v,Visitor *v,4_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: Visitor *v,variable v 
+46,4_167,METHOD_PARAMETER_OUT,name,const char *name,4_____1.0,,REMAIN,METHOD_PARAMETER_OUT_1.0: const char *name,variable name 
+47,4_168,METHOD_PARAMETER_OUT,obj,bool *obj,4_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: bool *obj,variable obj 
+48,4_169,METHOD_PARAMETER_OUT,errp,Error **errp,4_____2.0,,REMAIN,METHOD_PARAMETER_OUT_2.0: Error **errp,variable errp 
+51,4_4,TYPE_DECL,<global>,<global>,4_____1.0,,REMAIN,TYPE_DECL_1.0: <global>,type <global> 
+53,4_19,CALL,<operator>.assignment,"*qobj = qobject_input_get_object(qiv, name, true, errp)",4_____5.0,,REMAIN,"CALL_5.0: *qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+54,4_22,IDENTIFIER,qiv,qiv,4_____5.0,,REMAIN,IDENTIFIER_5.0: qiv,variable qiv 
+55,4_23,IDENTIFIER,name,name,4_____5.0,,REMAIN,IDENTIFIER_5.0: name,variable name 
+56,4_25,IDENTIFIER,errp,errp,4_____5.0,,REMAIN,IDENTIFIER_5.0: errp,variable errp 
+57,4_27,LOCAL,str,const char* str,4_____7.0,,REMAIN,LOCAL_7.0: const char* str,variable str 
+58,4_28,CONTROL_STRUCTURE,,if (!qobj),4_____9.0,IF,REMAIN,CONTROL_STRUCTURE_9.0: if (!qobj),ifStmt 
+59,4_29,CALL,<operator>.logicalNot,!qobj,4_____9.0,,REMAIN,CALL_9.0: !qobj,logicalNot 
+139,4_18,LOCAL,qobj,QObject* qobj,4_____5.0,,DELETE,LOCAL_5.0: QObject* qobj,variable qobj 
+140,4_20,IDENTIFIER,qobj,qobj,4_____5.0,,DELETE,IDENTIFIER_5.0: qobj,variable qobj 
+141,4_21,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",4_____5.0,,DELETE,"CALL_5.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+142,4_24,LITERAL,,true,4_____5.0,,DELETE,LITERAL_5.0: true,literal  
+143,4_26,LOCAL,qstr,QString* qstr,4_____6.0,,DELETE,LOCAL_6.0: QString* qstr,variable qstr 
+144,4_30,IDENTIFIER,qobj,qobj,4_____9.0,,DELETE,IDENTIFIER_9.0: qobj,variable qobj 
+145,4_32,RETURN,,return;,4_____10.0,,DELETE,RETURN_10.0: return;,return return  
+146,4_33,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),4_____12.0,,DELETE,CALL_12.0: qstr = qobject_to_qstring(qobj),assignment 
+147,4_34,IDENTIFIER,qstr,qstr,4_____12.0,,DELETE,IDENTIFIER_12.0: qstr,variable qstr 
+148,4_35,CALL,qobject_to_qstring,qobject_to_qstring(qobj),4_____12.0,,DELETE,CALL_12.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+149,4_36,IDENTIFIER,qobj,qobj,4_____12.0,,DELETE,IDENTIFIER_12.0: qobj,variable qobj 
+150,4_37,CONTROL_STRUCTURE,,if (!qstr),4_____13.0,IF,DELETE,CONTROL_STRUCTURE_13.0: if (!qstr),ifStmt 
+151,4_38,CALL,<operator>.logicalNot,!qstr,4_____13.0,,DELETE,CALL_13.0: !qstr,logicalNot 
+152,4_39,IDENTIFIER,qstr,qstr,4_____13.0,,DELETE,IDENTIFIER_13.0: qstr,variable qstr 
+154,4_41,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",4_____14.0,,DELETE,"CALL_14.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+155,4_42,IDENTIFIER,errp,errp,4_____14.0,,DELETE,IDENTIFIER_14.0: errp,variable errp 
+156,4_43,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,4_____14.0,,DELETE,IDENTIFIER_14.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+157,4_44,CALL,full_name,"full_name(qiv, name)",4_____15.0,,DELETE,"CALL_15.0: full_name(qiv, name)",funcCall full_name 
+158,4_45,IDENTIFIER,qiv,qiv,4_____15.0,,DELETE,IDENTIFIER_15.0: qiv,variable qiv 
+159,4_46,IDENTIFIER,name,name,4_____15.0,,DELETE,IDENTIFIER_15.0: name,variable name 
+160,4_47,LITERAL,,"""string""",4_____15.0,,DELETE,"LITERAL_15.0: ""string""",literal  
+161,4_49,CALL,<operator>.assignment,str = qstring_get_str(qstr),4_____19.0,,DELETE,CALL_19.0: str = qstring_get_str(qstr),assignment 
+162,4_50,IDENTIFIER,str,str,4_____19.0,,DELETE,IDENTIFIER_19.0: str,variable str 
+163,4_51,CALL,qstring_get_str,qstring_get_str(qstr),4_____19.0,,DELETE,CALL_19.0: qstring_get_str(qstr),funcCall qstring_get_str 
+164,4_52,IDENTIFIER,qstr,qstr,4_____19.0,,DELETE,IDENTIFIER_19.0: qstr,variable qstr 
+184,4_204,IDENTIFIER,str,str,4_____5.0,,ADD,IDENTIFIER_5.0: str,variable str 
+185,4_205,CALL,qobject_input_get_keyval,"qobject_input_get_keyval(qiv, name, errp)",4_____5.0,,ADD,"CALL_5.0: qobject_input_get_keyval(qiv, name, errp)",funcCall qobject_input_get_keyval 
+186,4_211,IDENTIFIER,str,str,4_____7.0,,ADD,IDENTIFIER_7.0: str,variable str 
+2,5_4,TYPE_DECL,<global>,<global>,5_____1.0,,ADD,TYPE_DECL_1.0: <global>,type <global> 
+3,5_5,METHOD,<global>,<global>,5_____1.0,,ADD,METHOD_1.0: <global>,
+5,5_7,METHOD,qobject_input_get_keyval,"const char* qobject_input_get_keyval (QObjectInputVisitor *qiv,const char *name,Error **errp)",5_____1.0,,ADD,"METHOD_1.0: const char* qobject_input_get_keyval (QObjectInputVisitor *qiv,const char *name,Error **errp)",methodDecl qobject_input_get_keyval 
+6,5_8,METHOD_PARAMETER_IN,qiv,QObjectInputVisitor *qiv,5_____1.0,,ADD,METHOD_PARAMETER_IN_1.0: QObjectInputVisitor *qiv,variable qiv 
+7,5_9,METHOD_PARAMETER_IN,name,const char *name,5_____2.0,,ADD,METHOD_PARAMETER_IN_2.0: const char *name,variable name 
+8,5_10,METHOD_PARAMETER_IN,errp,Error **errp,5_____3.0,,ADD,METHOD_PARAMETER_IN_3.0: Error **errp,variable errp 
+10,5_12,LOCAL,qobj,QObject* qobj,5_____5.0,,ADD,LOCAL_5.0: QObject* qobj,variable qobj 
+11,5_13,LOCAL,qstr,QString* qstr,5_____6.0,,ADD,LOCAL_6.0: QString* qstr,variable qstr 
+12,5_14,CALL,<operator>.assignment,"qobj = qobject_input_get_object(qiv, name, true, errp)",5_____8.0,,ADD,"CALL_8.0: qobj = qobject_input_get_object(qiv, name, true, errp)",assignment 
+13,5_15,IDENTIFIER,qobj,qobj,5_____8.0,,ADD,IDENTIFIER_8.0: qobj,variable qobj 
+14,5_16,CALL,qobject_input_get_object,"qobject_input_get_object(qiv, name, true, errp)",5_____8.0,,ADD,"CALL_8.0: qobject_input_get_object(qiv, name, true, errp)",funcCall qobject_input_get_object 
+15,5_17,IDENTIFIER,qiv,qiv,5_____8.0,,ADD,IDENTIFIER_8.0: qiv,variable qiv 
+16,5_18,IDENTIFIER,name,name,5_____8.0,,ADD,IDENTIFIER_8.0: name,variable name 
+17,5_19,LITERAL,,true,5_____8.0,,ADD,LITERAL_8.0: true,literal  
+18,5_20,IDENTIFIER,errp,errp,5_____8.0,,ADD,IDENTIFIER_8.0: errp,variable errp 
+19,5_21,CONTROL_STRUCTURE,,if (!qobj),5_____9.0,IF,ADD,CONTROL_STRUCTURE_9.0: if (!qobj),ifStmt 
+20,5_22,CALL,<operator>.logicalNot,!qobj,5_____9.0,,ADD,CALL_9.0: !qobj,logicalNot 
+21,5_23,IDENTIFIER,qobj,qobj,5_____9.0,,ADD,IDENTIFIER_9.0: qobj,variable qobj 
+23,5_25,RETURN,,return NULL;,5_____10.0,,ADD,RETURN_10.0: return NULL;,return return null  
+24,5_26,IDENTIFIER,NULL,NULL,5_____10.0,,ADD,IDENTIFIER_10.0: NULL,variable NULL 
+25,5_27,CALL,<operator>.assignment,qstr = qobject_to_qstring(qobj),5_____13.0,,ADD,CALL_13.0: qstr = qobject_to_qstring(qobj),assignment 
+26,5_28,IDENTIFIER,qstr,qstr,5_____13.0,,ADD,IDENTIFIER_13.0: qstr,variable qstr 
+27,5_29,CALL,qobject_to_qstring,qobject_to_qstring(qobj),5_____13.0,,ADD,CALL_13.0: qobject_to_qstring(qobj),funcCall qobject_to_qstring 
+28,5_30,IDENTIFIER,qobj,qobj,5_____13.0,,ADD,IDENTIFIER_13.0: qobj,variable qobj 
+29,5_31,CONTROL_STRUCTURE,,if (!qstr),5_____14.0,IF,ADD,CONTROL_STRUCTURE_14.0: if (!qstr),ifStmt 
+30,5_32,CALL,<operator>.logicalNot,!qstr,5_____14.0,,ADD,CALL_14.0: !qstr,logicalNot 
+31,5_33,IDENTIFIER,qstr,qstr,5_____14.0,,ADD,IDENTIFIER_14.0: qstr,variable qstr 
+33,5_35,CALL,error_setg,"error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",5_____15.0,,ADD,"CALL_15.0: error_setg(errp, QERR_INVALID_PARAMETER_TYPE,
+                   full_name(qiv, name), ""string"")",funcCall error_setg 
+34,5_36,IDENTIFIER,errp,errp,5_____15.0,,ADD,IDENTIFIER_15.0: errp,variable errp 
+35,5_37,IDENTIFIER,QERR_INVALID_PARAMETER_TYPE,QERR_INVALID_PARAMETER_TYPE,5_____15.0,,ADD,IDENTIFIER_15.0: QERR_INVALID_PARAMETER_TYPE,variable QERR_INVALID_PARAMETER_TYPE 
+36,5_38,CALL,full_name,"full_name(qiv, name)",5_____16.0,,ADD,"CALL_16.0: full_name(qiv, name)",funcCall full_name 
+37,5_39,IDENTIFIER,qiv,qiv,5_____16.0,,ADD,IDENTIFIER_16.0: qiv,variable qiv 
+38,5_40,IDENTIFIER,name,name,5_____16.0,,ADD,IDENTIFIER_16.0: name,variable name 
+39,5_41,LITERAL,,"""string""",5_____16.0,,ADD,"LITERAL_16.0: ""string""",literal  
+40,5_42,RETURN,,return NULL;,5_____17.0,,ADD,RETURN_17.0: return NULL;,return return null  
+41,5_43,IDENTIFIER,NULL,NULL,5_____17.0,,ADD,IDENTIFIER_17.0: NULL,variable NULL 
+42,5_44,RETURN,,return qstring_get_str(qstr);,5_____20.0,,ADD,RETURN_20.0: return qstring_get_str(qstr);,return return qstring get str qstr   
+43,5_45,CALL,qstring_get_str,qstring_get_str(qstr),5_____20.0,,ADD,CALL_20.0: qstring_get_str(qstr),funcCall qstring_get_str 
+44,5_46,IDENTIFIER,qstr,qstr,5_____20.0,,ADD,IDENTIFIER_20.0: qstr,variable qstr 
+45,5_47,METHOD_RETURN,,const char*,5_____1.0,,ADD,METHOD_RETURN_1.0: const char*,return const char  
+105,5_110,METHOD_PARAMETER_OUT,qiv,QObjectInputVisitor *qiv,5_____1.0,,ADD,METHOD_PARAMETER_OUT_1.0: QObjectInputVisitor *qiv,variable qiv 
+106,5_111,METHOD_PARAMETER_OUT,name,const char *name,5_____2.0,,ADD,METHOD_PARAMETER_OUT_2.0: const char *name,variable name 
+107,5_112,METHOD_PARAMETER_OUT,errp,Error **errp,5_____3.0,,ADD,METHOD_PARAMETER_OUT_3.0: Error **errp,variable errp 
