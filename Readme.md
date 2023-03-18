@@ -4,14 +4,14 @@ python Main_Word2Vec.py --vocab_file_path="vocab/word2vec.vocabulary.txt" --vect
 ```
 The vocab file can be downloaded <a href="https://drive.google.com/file/d/1jXZTQv08tl7ThoCI8468fNQ0FeTA8XNN/view?usp=sharing"> here </a>
 
-Or you can used our <a href="https://drive.google.com/file/d/1-0KTxFoPgx4OmEK7RTVxVkqYiQJ8KjUB/view?usp=sharing"> pre-trained model </a>
+You can used our <a href="https://drive.google.com/file/d/1-0KTxFoPgx4OmEK7RTVxVkqYiQJ8KjUB/view?usp=sharing"> pre-trained model </a>
 
 ## Instruction to embed features of nodes and edges of the graphs
 ```
 python Main_Graph_Embedding.py --node_graph_dir="Data/Graph/node" --node_graph_dir="Data/Graph/edge" --label=1 --embedding_graph_dir="Data/embedding" 
 ```
 
-Or you can used our <a href="https://drive.google.com/drive/folders/13t6b0Iavnlrj0zEdksmuz7MPWyz6n9jY?usp=share_link"> embedded graphs </a>
+You can used our <a href="https://drive.google.com/drive/folders/13t6b0Iavnlrj0zEdksmuz7MPWyz6n9jY?usp=share_link"> embedded graphs </a>
 
 ## Instruction to train and test GNN models
 
