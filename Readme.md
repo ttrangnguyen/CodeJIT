@@ -20,3 +20,17 @@ python Main_VULJIT_Detection.py --graph_dir='Data/Embedding_CTG'  --train_file='
 ```
 
 Download the commit ids in the training and testing sets from <a href="https://drive.google.com/drive/folders/1pJJsY_dkpdRGyhsCz44LdVrW-waA0j8E?usp=sharing"> here </a>
+
+In order to train GNN models, you need to install the required libraries such as torch and pytorch_geometrics
+
+```
+# Install required packages.
+import os
+import torch
+os.environ['TORCH'] = torch.__version__
+print(torch.__version__)
+
+!pip install -q torch-scatter -f https://data.pyg.org/whl/torch-${TORCH}.html
+!pip install -q torch-sparse -f https://data.pyg.org/whl/torch-${TORCH}.html
+!pip install -q git+https://github.com/pyg-team/pytorch_geometric.git
+```
