@@ -45,10 +45,13 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
     df.columns = ['commit_id', 'nodes', 'edges', 'vul_lines']
 
     for idx, row in df.iterrows():
+        commit_id = df.at[idx, "commit_id"]
         if not isinstance(df.at[idx, "vul_lines"], str):
+            print("skip commit:", commit_id)
             break
         try:
-            commit_id = df.at[idx, "commit_id"]
+
+            print("handle commit:", commit_id)
             vul_lines_list = get_vul_lines_list(df.at[idx, "vul_lines"].split(separate_token))
             node_infos, edge_infos = CTG_main(df, idx, ground_truth, separate_token, "explaining")
             lineNumbers = node_infos.lineNumber.unique()
