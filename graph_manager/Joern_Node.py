@@ -21,21 +21,25 @@ def clean_code(code):
         code = code.replace(item, " ")
     return code.lower()
 
+
 def print_stmt(stmt_nodes, edges):
-    #print(stmt_nodes.columns)
+    # print(stmt_nodes.columns)
     sentence = ""
     for i, n in stmt_nodes.iterrows():
-        #print(n)
+        # print(n)
         tmp = NODE(stmt_nodes.at[i, "id"], stmt_nodes.at[i, "_label"], stmt_nodes.at[i, "code"],
                    stmt_nodes.at[i, "name"])
         sentence += tmp.print_node()
     return sentence
 
+
 def get_list_stmts(stmt_id_list, operation_ctxs):
-  content = " "
-  for x in stmt_id_list:
-    content += operation_ctxs[x] + " "
-  return content
+    content = " "
+    for x in stmt_id_list:
+        if x in operation_ctxs.keys():
+            content += operation_ctxs[x] + " "
+    return content
+
 
 class NODE:
     def __init__(self, _id, label, code, name):
@@ -75,16 +79,16 @@ class NODE:
             result = self.name.replace("<operator>.", "") + " "
         elif self.label == "CALL":
             result = "funcCall " + self.name + " "
-            #result = "funcCall "
+            # result = "funcCall "
         elif self.label == "IDENTIFIER" or self.label == "METHOD_PARAMETER_IN" or self.label == "METHOD_PARAMETER_OUT" or self.label == "FIELD_IDENTIFIER" or self.label == "LOCAL":
             result = "variable " + self.name + " "
-            #result = "variable "
+            # result = "variable "
         elif self.label == "METHOD_RETURN" or self.label == "RETURN":
             if self.name != "":
                 result = "return " + self.name + " "
             else:
                 result = "return " + self.code + " "
-            #result = "return "
+            # result = "return "
         elif self.label == "NAMESPACE":
             result = "namespace "
         elif self.label == "COMMENT":
@@ -93,17 +97,17 @@ class NODE:
             result = "file "
         elif self.label == "LITERAL":
             result = "literal " + self.name + " "
-            #result = "literal "
+            # result = "literal "
         elif self.label == "UNKNOWN":
             result = self.code + " "
         elif self.label == "TYPE" or self.label == "TYPE_DECL":
             result = "type " + self.name + " "
-            #result = "type "
+            # result = "type "
         elif self.label == "METHOD":
             if self.name != "<global>":
                 result = "methodDecl " + self.name + " "
-                #result = "methodDecl "
+                # result = "methodDecl "
         elif self.label != "BLOCK":
             result = self.label + " "
-        #result += self.code + " "
+        # result += self.code + " "
         return result

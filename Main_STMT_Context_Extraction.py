@@ -9,7 +9,6 @@ import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-
 def get_vul_lines_list(vul_lines):
     vul_lines_list = []
     for v in vul_lines:
@@ -42,44 +41,47 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
     elif(_skiprows != -1 and _nrows == -1):
         df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows)
     else:
-        df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows,)
-    df.columns = ['commit_id', 'nodes', 'edges', 'vul_lines']
+        df = pandas.read_csv(_vtc_filepath)
+    df.columns = ['', 'commit_id', 'nodes', 'edges', 'vul_lines']
 
     for idx, row in df.iterrows():
         if not isinstance(df.at[idx, "vul_lines"], str):
             break
-        commit_id = df.at[idx, "commit_id"]
-        vul_lines_list = get_vul_lines_list(df.at[idx, "vul_lines"].split(separate_token))
-        node_infos, edge_infos = CTG_main(df, idx, ground_truth, separate_token, "explaining")
-        lineNumbers = node_infos.lineNumber.unique()
-        ctg_operation_ctx = get_operation_context(node_infos, edge_infos, lineNumbers)
+        try:
+            commit_id = df.at[idx, "commit_id"]
+            vul_lines_list = get_vul_lines_list(df.at[idx, "vul_lines"].split(separate_token))
+            node_infos, edge_infos = CTG_main(df, idx, ground_truth, separate_token, "explaining")
+            lineNumbers = node_infos.lineNumber.unique()
+            ctg_operation_ctx = get_operation_context(node_infos, edge_infos, lineNumbers)
 
-        for item in lineNumbers:
-            if item != "":
-                stmt_nodes = node_infos[node_infos["lineNumber"] == item]
-                stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] != "REMAIN"]
-                if (len(stmt_nodes) > 0):
+            for item in lineNumbers:
+                if item != "":
+                    stmt_nodes = node_infos[node_infos["lineNumber"] == item]
+                    stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] != "REMAIN"]
+                    if (len(stmt_nodes) > 0):
 
-                    cdg_bw_slicing = backward_slicing(edge_infos, item, "CDG")
-                    cdg_fw_slicing = forward_slicing(edge_infos, item, "CDG")
-                    ddg_bw_slicing = backward_slicing(edge_infos, item, "DDG")
-                    ddg_fw_slicing = forward_slicing(edge_infos, item, "DDG")
-                    vul_stmt = 0
-                    if item in vul_lines_list:
-                        vul_stmt = 1
-                    data_of_the_stmt = {"commit_id": commit_id, "line_number": item,
-                                        "operation_ctx": ctg_operation_ctx[item],
-                                        "cdg_bw_slicing": get_list_stmts(cdg_bw_slicing, ctg_operation_ctx),
-                                        "cdg_fw_slicing": get_list_stmts(cdg_fw_slicing, ctg_operation_ctx),
-                                        "ddg_bw_slicing": get_list_stmts(ddg_bw_slicing, ctg_operation_ctx),
-                                        "ddg_fw_slicing": get_list_stmts(ddg_fw_slicing, ctg_operation_ctx),
-                                        "vul_stmt": vul_stmt
-                                        }
-                    vul_data = {1: data_of_the_stmt}
-                    if not os.path.isfile(_output_filepath):
-                        pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
-                    else:  # else it exists so append without writing the header
-                        pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
+                        cdg_bw_slicing = backward_slicing(edge_infos, item, "CDG")
+                        cdg_fw_slicing = forward_slicing(edge_infos, item, "CDG")
+                        ddg_bw_slicing = backward_slicing(edge_infos, item, "DDG")
+                        ddg_fw_slicing = forward_slicing(edge_infos, item, "DDG")
+                        vul_stmt = 0
+                        if item in vul_lines_list:
+                            vul_stmt = 1
+                        data_of_the_stmt = {"commit_id": commit_id, "line_number": item,
+                                            "operation_ctx": ctg_operation_ctx[item],
+                                            "cdg_bw_slicing": get_list_stmts(cdg_bw_slicing, ctg_operation_ctx),
+                                            "cdg_fw_slicing": get_list_stmts(cdg_fw_slicing, ctg_operation_ctx),
+                                            "ddg_bw_slicing": get_list_stmts(ddg_bw_slicing, ctg_operation_ctx),
+                                            "ddg_fw_slicing": get_list_stmts(ddg_fw_slicing, ctg_operation_ctx),
+                                            "vul_stmt": vul_stmt
+                                            }
+                        vul_data = {1: data_of_the_stmt}
+                        if not os.path.isfile(_output_filepath):
+                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
+                        else:  # else it exists so append without writing the header
+                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
+        except:
+            print("exception: ", commit_id)
 
 
 if __name__ == '__main__':
