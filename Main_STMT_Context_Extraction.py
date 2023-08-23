@@ -48,7 +48,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
         commit_id = df.at[idx, "commit_id"]
         if not isinstance(df.at[idx, "vul_lines"], str):
             print("skip commit:", commit_id)
-            break
+            continue
         try:
 
             print("handle commit:", commit_id)
