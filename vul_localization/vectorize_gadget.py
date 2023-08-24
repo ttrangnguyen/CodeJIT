@@ -8,7 +8,7 @@ warnings.filterwarnings("ignore")
 from gensim.models import Word2Vec
 from gensim.models import FastText
 import numpy
-from helper import *
+from vul_localization.helper import *
 CTX_SURROUNDING = "ctx_surrounding"
 CTX_CDG = "ctx_cfg"
 CTX_DDG = "ctx_ddg"
