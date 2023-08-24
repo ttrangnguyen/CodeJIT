@@ -5,10 +5,6 @@ from vul_localization.Result_Manager import *
 from gensim.models import KeyedVectors
 import pandas
 
-
-
-
-
 def read_train_and_test_data():
     tmp_file = open("Data/JIT_DATASET/data_split/suffle/train_cross_id.txt", "r").readlines()
     train_ids = [f.replace("\n", "") for f in tmp_file]

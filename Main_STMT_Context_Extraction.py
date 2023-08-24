@@ -63,19 +63,19 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
                     stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] != "REMAIN"]
                     if (len(stmt_nodes) > 0):
 
-                        cdg_bw_slicing = directed_backward_dependence(edge_infos, item, "CDG")
-                        cdg_fw_slicing = directed_forward_dependence(edge_infos, item, "CDG")
-                        ddg_bw_slicing = directed_backward_dependence(edge_infos, item, "DDG")
-                        ddg_fw_slicing = directed_forward_dependence(edge_infos, item, "DDG")
+                        # cdg_bw_slicing = directed_backward_dependence(edge_infos, item, "CDG")
+                        # cdg_fw_slicing = directed_forward_dependence(edge_infos, item, "CDG")
+                        # ddg_bw_slicing = directed_backward_dependence(edge_infos, item, "DDG")
+                        # ddg_fw_slicing = directed_forward_dependence(edge_infos, item, "DDG")
                         vul_stmt = 0
                         if item in vul_lines_list:
                             vul_stmt = 1
                         data_of_the_stmt = {"commit_id": commit_id, "line_number": item,
                                             "operation_ctx": ctg_operation_ctx[item],
-                                            "cdg_bw_slicing": get_list_stmts(cdg_bw_slicing, ctg_operation_ctx),
-                                            "cdg_fw_slicing": get_list_stmts(cdg_fw_slicing, ctg_operation_ctx),
-                                            "ddg_bw_slicing": get_list_stmts(ddg_bw_slicing, ctg_operation_ctx),
-                                            "ddg_fw_slicing": get_list_stmts(ddg_fw_slicing, ctg_operation_ctx),
+                                            # "cdg_bw_slicing": get_list_stmts(cdg_bw_slicing, ctg_operation_ctx),
+                                            # "cdg_fw_slicing": get_list_stmts(cdg_fw_slicing, ctg_operation_ctx),
+                                            # "ddg_bw_slicing": get_list_stmts(ddg_bw_slicing, ctg_operation_ctx),
+                                            # "ddg_fw_slicing": get_list_stmts(ddg_fw_slicing, ctg_operation_ctx),
                                             "vul_stmt": vul_stmt
                                             }
                         vul_data = {1: data_of_the_stmt}
