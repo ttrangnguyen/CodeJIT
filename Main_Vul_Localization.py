@@ -68,11 +68,11 @@ if __name__ == '__main__':
     max_code_stmt_length = args.max_code_stmt_length
     batch_size = args.batch_size
     epochs = args.epochs
-    mode_name = args.mode_name
+    model_name = args.model_name
     w2vmodel_path = args.w2vmodel_path
     training_data_file = args.training_data_file
     testing_data_file = args.testing_data_file
     output_file = args.output_file
     main(vector_length, max_seq_length, max_code_stmt_length, w2vmodel_path, training_data_file,
-         testing_data_file,mode_name,batch_size, epochs, output_file)
+         testing_data_file,model_name,batch_size, epochs, output_file)
     #read_train_and_test_data()
