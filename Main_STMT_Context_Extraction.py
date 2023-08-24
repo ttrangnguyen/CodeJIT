@@ -9,6 +9,7 @@ import warnings
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
+
 def get_vul_lines_list(vul_lines):
     vul_lines_list = []
     for v in vul_lines:
@@ -31,14 +32,13 @@ def get_operation_context(node_infos, edge_infos, lineNumbers):
 
 
 def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
-
     ground_truth = 1
     separate_token = "=" * 100
-    if(_skiprows != -1 and _nrows != -1):
+    if _skiprows != -1 and _nrows != -1:
         df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows, nrows=_nrows)
-    elif(_skiprows == -1 and _nrows != -1):
-            df = pandas.read_csv(_vtc_filepath, nrows=_nrows)
-    elif(_skiprows != -1 and _nrows == -1):
+    elif _skiprows == -1 and _nrows != -1:
+        df = pandas.read_csv(_vtc_filepath, nrows=_nrows)
+    elif _skiprows != -1 and _nrows == -1:
         df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows)
     else:
         df = pandas.read_csv(_vtc_filepath)
@@ -53,7 +53,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
 
             print("handle commit:", commit_id)
             vul_lines_list = get_vul_lines_list(df.at[idx, "vul_lines"].split(separate_token))
-            node_infos, edge_infos = CTG_main(df, idx, ground_truth, separate_token, "explaining")
+            node_infos, edge_infos = commit_full_graph(df, idx, separate_token)
             lineNumbers = node_infos.lineNumber.unique()
             ctg_operation_ctx = get_operation_context(node_infos, edge_infos, lineNumbers)
 
@@ -61,12 +61,12 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
                 if item != "":
                     stmt_nodes = node_infos[node_infos["lineNumber"] == item]
                     stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] != "REMAIN"]
-                    if (len(stmt_nodes) > 0):
+                    if len(stmt_nodes) > 0:
 
-                        cdg_bw_slicing = backward_slicing(edge_infos, item, "CDG")
-                        cdg_fw_slicing = forward_slicing(edge_infos, item, "CDG")
-                        ddg_bw_slicing = backward_slicing(edge_infos, item, "DDG")
-                        ddg_fw_slicing = forward_slicing(edge_infos, item, "DDG")
+                        cdg_bw_slicing = backward_slice_a_node(item, node_infos, edge_infos, "CDG")
+                        cdg_fw_slicing = forward_slice_a_node(item, node_infos, edge_infos, "CDG")
+                        ddg_bw_slicing = backward_slice_a_node(item, node_infos, edge_infos, "DDG")
+                        ddg_fw_slicing = forward_slice_a_node(item, node_infos, edge_infos, "DDG")
                         vul_stmt = 0
                         if item in vul_lines_list:
                             vul_stmt = 1
@@ -80,9 +80,11 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
                                             }
                         vul_data = {1: data_of_the_stmt}
                         if not os.path.isfile(_output_filepath):
-                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
+                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath,
+                                                                                             header='column_names')
                         else:  # else it exists so append without writing the header
-                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
+                            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a',
+                                                                                             header=False)
         except:
             print("exception: ", commit_id)
 
