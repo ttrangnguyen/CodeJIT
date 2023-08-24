@@ -1,5 +1,5 @@
-from vectorize_gadget import *
-from helper import *
+from vul_localization.vectorize_gadget import *
+from vul_localization.helper import *
 #from glove_vectorize import *
 import json 
 import pandas 
