@@ -44,7 +44,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
         df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows)
     else:
         df = pandas.read_csv(_vtc_filepath)
-    df.columns = ['', 'commit_id', 'nodes', 'edges', 'vul_lines']
+    df.columns = ['commit_id', 'nodes', 'edges', 'vul_lines']
 
     for idx, row in df.iterrows():
         commit_id = df.at[idx, "commit_id"]
