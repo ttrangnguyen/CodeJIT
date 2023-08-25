@@ -25,12 +25,14 @@ def clean_code(code):
 def print_stmt(stmt_nodes, edges):
     # print(stmt_nodes.columns)
     sentence = ""
+    change_operation_sequences = ""
     for i, n in stmt_nodes.iterrows():
         # print(n)
         tmp = NODE(stmt_nodes.at[i, "id"], stmt_nodes.at[i, "_label"], stmt_nodes.at[i, "code"],
-                   stmt_nodes.at[i, "name"])
+                   stmt_nodes.at[i, "name"], stmt_nodes.at[i, "ALPHA"])
         sentence += tmp.print_node()
-    return sentence
+        change_operation_sequences += tmp.change_operation + " "
+    return sentence, change_operation_sequences
 
 
 def get_list_stmts(stmt_id_list, operation_ctxs):
@@ -42,7 +44,7 @@ def get_list_stmts(stmt_id_list, operation_ctxs):
 
 
 class NODE:
-    def __init__(self, _id, label, code, name):
+    def __init__(self, _id, label, code, name, change_operation):
 
         self.id = _id
         if isinstance(label, str):
@@ -58,9 +60,13 @@ class NODE:
             self.name = name.replace("\n", " ")
         else:
             self.name = ""
+        self.change_operation = change_operation
         # self.parents = edges[edges["innode"] == _id]["outnode"].tolist()
         # self.children = edges[edges["outnode"] == _id]["innode"].tolist()
         # print(self.parents)
+
+    def print_change_operation(self):
+        return self.change_operation
 
     def print_node(self):
         result = ""

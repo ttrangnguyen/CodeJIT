@@ -110,7 +110,7 @@ def generate_node_content(nodes):
     content = []
     for i, n in nodes.iterrows():
         tmp = NODE(nodes.at[i, "id"], nodes.at[i, "_label"], nodes.at[i, "code"],
-                   nodes.at[i, "name"])
+                   nodes.at[i, "name"], nodes.at[i, "ALPHA"])
         content.append(tmp.print_node())
     nodes["node_content"] = content
     return nodes

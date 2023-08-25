@@ -21,13 +21,15 @@ def get_vul_lines_list(vul_lines):
 
 def get_operation_context(node_infos, edge_infos, lineNumbers):
     ctg_operation_ctx = {}
+    change_operation_sequence = {}
     for item in lineNumbers:
         if item != "":
             stmt_nodes = node_infos[node_infos["lineNumber"] == item]
 
-            op_ctx = print_stmt(stmt_nodes, edge_infos)
+            op_ctx, change_op = print_stmt(stmt_nodes, edge_infos)
             ctg_operation_ctx[item] = op_ctx
-    return ctg_operation_ctx
+            change_operation_sequence[item] = change_op
+    return ctg_operation_ctx, change_operation_sequence
 
 
 def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
@@ -42,7 +44,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
         df = pandas.read_csv(_vtc_filepath, skiprows=_skiprows)
     else:
         df = pandas.read_csv(_vtc_filepath)
-    df.columns = ['commit_id', 'nodes', 'edges', 'vul_lines']
+    df.columns = ['', 'commit_id', 'nodes', 'edges', 'vul_lines']
 
     for idx, row in df.iterrows():
         commit_id = df.at[idx, "commit_id"]
@@ -55,12 +57,12 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
             vul_lines_list = get_vul_lines_list(df.at[idx, "vul_lines"].split(separate_token))
             node_infos, edge_infos = CTG_main(df, idx, ground_truth, separate_token, "explaining")
             lineNumbers = node_infos.lineNumber.unique()
-            ctg_operation_ctx = get_operation_context(node_infos, edge_infos, lineNumbers)
+            ctg_operation_ctx, change_operation_sequences = get_operation_context(node_infos, edge_infos, lineNumbers)
 
             for item in lineNumbers:
                 if item != "":
                     stmt_nodes = node_infos[node_infos["lineNumber"] == item]
-                    stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] != "REMAIN"]
+                    stmt_nodes = stmt_nodes[stmt_nodes['ALPHA'] == "ADD"]
                     if (len(stmt_nodes) > 0):
 
                         # cdg_bw_slicing = directed_backward_dependence(edge_infos, item, "CDG")
@@ -72,6 +74,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
                             vul_stmt = 1
                         data_of_the_stmt = {"commit_id": commit_id, "line_number": item,
                                             "operation_ctx": ctg_operation_ctx[item],
+                                            "change_operation_sequence": change_operation_sequences[item],
                                             # "cdg_bw_slicing": get_list_stmts(cdg_bw_slicing, ctg_operation_ctx),
                                             # "cdg_fw_slicing": get_list_stmts(cdg_fw_slicing, ctg_operation_ctx),
                                             # "ddg_bw_slicing": get_list_stmts(ddg_bw_slicing, ctg_operation_ctx),
