@@ -82,8 +82,8 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
                 else:  # else it exists so append without writing the header
                     pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
                 del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges, ctg
-            except:
-                print("exception: ", commit_id)
+        except:
+            print("exception: ", commit_id)
 
 
 if __name__ == '__main__':
