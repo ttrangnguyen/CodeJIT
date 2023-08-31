@@ -36,8 +36,8 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
         changedline_data = pandas.read_csv(_changedline_filepath, skiprows=_skiprows)
     else:
         changedline_data = pandas.read_csv(_changedline_filepath)
-    changedline_data.columns = ['commit_id', 'idx', 'changed_type', 'label',
-                               'raw_changed_line', 'blame_line', 'line_number', 'index_ctg']
+    changedline_data.columns = ['Unnamed: 0', 'commit_id', 'idx', 'changed_type', 'label',
+                                'raw_changed_line', 'blame_line', 'line_number', 'index_ctg']
     ctg_data = pandas.read_csv(_vtc_filepath)
     for idx, row in changedline_data.iterrows():
 
