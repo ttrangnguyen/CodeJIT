@@ -52,6 +52,8 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
             continue
         # try:
         ctg = ctg_data[ctg_data['commit_id'] == commit_id]
+        if len(ctg) == 0:
+            continue
         sub_graph_nodes = ctg.loc[0, "nodes"].split(separate_token)
         sub_graph_edges = ctg.loc[0, "edges"].split(separate_token)
         nodes = ""
