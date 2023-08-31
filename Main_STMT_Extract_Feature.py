@@ -52,39 +52,38 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
             continue
         # try:
         ctg = ctg_data[ctg_data['commit_id'] == commit_id]
-        if len(ctg) == 0:
-            continue
-        sub_graph_nodes = ctg.loc[0, "nodes"].split(separate_token)
-        sub_graph_edges = ctg.loc[0, "edges"].split(separate_token)
-        nodes = ""
-        edges = ""
+        for ctx_idx, row in ctg.iterrows():
+            sub_graph_nodes = ctg.at[ctx_idx, "nodes"].split(separate_token)
+            sub_graph_edges = ctg.loc[ctx_idx, "edges"].split(separate_token)
+            nodes = ""
+            edges = ""
 
-        for sub_graph_idx in range(0, len(sub_graph_nodes)):
-            if (sub_graph_nodes[sub_graph_idx].split("_____")[0] == str(ctg_index)):
-                node_content = sub_graph_nodes[sub_graph_idx].split("_____")[1]
-                edge_content = sub_graph_edges[sub_graph_idx].split("_____")[1]
+            for sub_graph_idx in range(0, len(sub_graph_nodes)):
+                if (sub_graph_nodes[sub_graph_idx].split("_____")[0] == str(ctg_index)):
+                    node_content = sub_graph_nodes[sub_graph_idx].split("_____")[1]
+                    edge_content = sub_graph_edges[sub_graph_idx].split("_____")[1]
 
-                nodes, edges = get_node_edges(edge_content, node_content)
-                edges.to_csv("Data/edge_example.csv")
-                break
-        topic = get_topic(nodes)
-        line_nodes, line_edges = get_context(nodes, edges, line_number)
-        stmt = changedline_data.at[idx, "raw_changed_line"]
-        data_of_the_stmt = {"commit_id": commit_id, "line_number": line_number,
-                            "topic": topic,
-                            "context_nodes": line_nodes,
-                            "context_edges": line_edges,
-                            "stmt": stmt,
-                            "label": changedline_data.at[idx, "label"]
-                            }
-        vul_data = {1: data_of_the_stmt}
-        if not os.path.isfile(_output_filepath):
-            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
-        else:  # else it exists so append without writing the header
-            pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
-        del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges, ctg
-        # except:
-        #     print("exception: ", commit_id)
+                    nodes, edges = get_node_edges(edge_content, node_content)
+                    edges.to_csv("Data/edge_example.csv")
+                    break
+            topic = get_topic(nodes)
+            line_nodes, line_edges = get_context(nodes, edges, line_number)
+            stmt = changedline_data.at[idx, "raw_changed_line"]
+            data_of_the_stmt = {"commit_id": commit_id, "line_number": line_number,
+                                "topic": topic,
+                                "context_nodes": line_nodes,
+                                "context_edges": line_edges,
+                                "stmt": stmt,
+                                "label": changedline_data.at[idx, "label"]
+                                }
+            vul_data = {1: data_of_the_stmt}
+            if not os.path.isfile(_output_filepath):
+                pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
+            else:  # else it exists so append without writing the header
+                pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
+            del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges, ctg
+            # except:
+            #     print("exception: ", commit_id)
 
 
 if __name__ == '__main__':
