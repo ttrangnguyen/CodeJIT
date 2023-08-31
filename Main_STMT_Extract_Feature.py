@@ -45,6 +45,8 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
         ctg_index = changedline_data.at[idx, "index_ctg"]
         line_number = changedline_data.at[idx, "line_number"]
         stmt = changedline_data.at[idx, "raw_changed_line"]
+        if not isinstance(stmt, str):
+            continue
         tmp = stmt.replace(" ", "").replace("{", "").replace("}", "")
         if len(tmp) == 0:
             continue
@@ -78,7 +80,7 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
                 pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
             else:  # else it exists so append without writing the header
                 pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
-            del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges
+            del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges, ctg
         except:
             print("exception: ", commit_id)
 
