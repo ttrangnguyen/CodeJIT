@@ -78,7 +78,7 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
                 pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
             else:  # else it exists so append without writing the header
                 pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
-
+            del data_of_the_stmt, sub_graph_nodes, sub_graph_edges, nodes, edges
         except:
             print("exception: ", commit_id)
 
