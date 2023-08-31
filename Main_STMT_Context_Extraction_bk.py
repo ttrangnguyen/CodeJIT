@@ -86,6 +86,7 @@ def main(_skiprows, _nrows, _vtc_filepath, _output_filepath):
                             pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, header='column_names')
                         else:  # else it exists so append without writing the header
                             pandas.DataFrame.from_dict(data=vul_data, orient='index').to_csv(_output_filepath, mode='a', header=False)
+
         except:
             print("exception: ", commit_id)
 
