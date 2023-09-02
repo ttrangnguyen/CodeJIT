@@ -63,7 +63,10 @@ class OneHotEncoder(object):
     def __call__(self, df):
         x = torch.zeros(len(df), len(self.dicts))
         for i, col in enumerate(df.values):
-            x[i, self.dicts.index(col)] = 1
+            try:
+                x[i, self.dicts.index(col)] = 1
+            except:
+                x[i, 0] = 0
         return x
 
 
