@@ -39,8 +39,8 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
     changedline_data.columns = ['Unnamed: 0', 'commit_id', 'idx', 'changed_type', 'label',
                                 'raw_changed_line', 'blame_line', 'line_number', 'index_ctg']
     ctg_data = pandas.read_csv(_vtc_filepath)
+    changedline_data = changedline_data[changedline_data["changed_type"] == "added"]
     for idx, row in changedline_data.iterrows():
-
         commit_id = changedline_data.at[idx, "commit_id"]
         ctg_index = changedline_data.at[idx, "index_ctg"]
         line_number = changedline_data.at[idx, "line_number"]
@@ -69,7 +69,9 @@ def main(_skiprows, _nrows, _changedline_filepath, _vtc_filepath, _output_filepa
                 topic = get_topic(nodes)
                 line_nodes, line_edges = get_context(nodes, edges, line_number)
                 stmt = changedline_data.at[idx, "raw_changed_line"]
-                data_of_the_stmt = {"commit_id": commit_id, "line_number": line_number,
+                data_of_the_stmt = {"commit_id": commit_id,
+                                    "line_number": line_number,
+                                    "index_ctg": ctg_index,
                                     "topic": topic,
                                     "context_nodes": line_nodes,
                                     "context_edges": line_edges,
