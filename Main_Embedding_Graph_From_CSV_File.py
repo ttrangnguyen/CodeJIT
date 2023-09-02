@@ -28,5 +28,5 @@ if __name__ == '__main__':
         edges = pandas.DataFrame.from_records(edges)
         commit_id = data.at[idx, "commit_id"]
         line_number = data.at[idx, "line_number"]
-        graph = embed_graph(data[idx, "commit_id"], data[idx, "label"], nodes, edges)
+        graph = embed_graph(data.at[idx, "commit_id"], data.at[idx, "label"], nodes, edges)
         torch.save(data, os.path.join(embedding_graph_dir, "data_{}_{}.pt".format(commit_id, line_number)))
