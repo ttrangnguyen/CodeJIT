@@ -99,7 +99,7 @@ def train(curr_epochs, _trainLoader, model, criterion, optimizer, device):
 
 def test_model(test_file_path, _params, model_path):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    train_files = [f for f in os.listdir(test_file_path) if os.path.isfile(f)]
+    test_files = [f for f in os.listdir(test_file_path) if os.path.isfile(f)]
 
     test_dataset = GraphDataset(test_files, test_file_path)
     _testLoader = DataLoader(test_dataset, collate_fn=collate_batch, shuffle=False)
