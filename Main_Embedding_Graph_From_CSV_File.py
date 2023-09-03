@@ -12,12 +12,27 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--file_path', type=str)
     parser.add_argument('--embedding_graph_dir', type=str, help='dir to save embedding graph')
-
+    parser.add_argument('--skiprows', type=int, default=-1)
+    parser.add_argument('--nrows', type=int, default=-1)
     args = parser.parse_args()
 
     file_path = args.file_path
     embedding_graph_dir = args.embedding_graph_dir
-    data = pandas.read_csv(file_path)
+    _skiprows = args.skiprows
+    _nrows = args.nrows
+    if _skiprows != -1 and _nrows != -1:
+        data = pandas.read_csv(file_path, skiprows=_skiprows, nrows=_nrows)
+    elif _skiprows == -1 and _nrows != -1:
+        data = pandas.read_csv(file_path, nrows=_nrows)
+    elif _skiprows != -1 and _nrows == -1:
+        data = pandas.read_csv(file_path, skiprows=_skiprows)
+    else:
+        data = pandas.read_csv(file_path)
+
+
+    data.columns = ['Unnamed: 0.1', 'Unnamed: 0', 'commit_id', 'line_number', 'index_ctg',
+         'topic', 'context_nodes', 'context_edges', 'stmt', 'label']
+
     data = data[data["context_nodes"] != "[]"]
     for idx, row in data.iterrows():
         try:
