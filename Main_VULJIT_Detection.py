@@ -13,7 +13,7 @@ if __name__ == '__main__':
                         default='best_model')
     parser.add_argument('--GNN_type', default= "RGCN")
     parser.add_argument('--graph_readout_func', default= "add")
-    parser.add_argument('--mode', default=  "train_and_test")
+    parser.add_argument('--mode', default= "train_and_test")
     parser.add_argument('--hidden_size', default=  32)
     parser.add_argument('--learning_rate', default=  0.0001)
     parser.add_argument('--dropout_rate', default= 0.2)

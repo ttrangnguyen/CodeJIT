@@ -5,22 +5,22 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
     classification_report, roc_curve, auc
 from tqdm import tqdm
 import torch
-from graph_dataset import *
+from vul_line_graph_dataset import *
 import random
 from RGAT import *
 from RGCN import *
 from FastRGCN import *
 import pandas
-
+import os
 tqdm.pandas()
 
 
-def train_model(graph_path, train_file_path, test_file_path, _params, model_path, starting_epochs=0):
+def train_model(train_file_path, test_file_path, _params, model_path, starting_epochs=0):
     torch.manual_seed(12345)
-    tmp_file = open(train_file_path, "r").readlines()
-    train_files = [f.replace("\n", "") for f in tmp_file]
 
-    train_dataset = GraphDataset(train_files, graph_path)
+    train_files = [f for f in os.listdir(train_file_path) if os.path.isfile(f)]
+
+    train_dataset = GraphDataset(train_files, train_file_path)
     _trainLoader = DataLoader(train_dataset, collate_fn=collate_batch, shuffle=False)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -97,14 +97,11 @@ def train(curr_epochs, _trainLoader, model, criterion, optimizer, device):
     return avg_train_loss, acc
 
 
-def test_model(graph_path, test_file_path, _params, model_path):
+def test_model(test_file_path, _params, model_path):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    tmp_file = open(test_file_path, "r").readlines()
-    test_files = [f.replace("\n", "") for f in tmp_file]
-    random.shuffle(test_files)
-    test_files = test_files
+    train_files = [f for f in os.listdir(test_file_path) if os.path.isfile(f)]
 
-    test_dataset = GraphDataset(test_files, graph_path)
+    test_dataset = GraphDataset(test_files, test_file_path)
     _testLoader = DataLoader(test_dataset, collate_fn=collate_batch, shuffle=False)
 
     data = {}
